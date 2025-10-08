@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>KiteAI Web Panel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+</head>
+<body>
+  <div class="navbar">
+    <div><b>KiteAI Panel</b></div>
+    <div id="navUser"></div>
+  </div>
+
+  <div class="container" style="max-width:1080px;margin:18px auto;">
+    <!-- Summary -->
+    <div class="card" id="summaryCard">
+      <h3>Summary</h3>
+      <div id="summaryRow"></div>
+    </div>
+
+    <!-- Wallets -->
+    <div class="card">
+      <h3>Wallets</h3>
+      <form id="formAddWallet" style="display:flex;gap:8px;margin-bottom:12px;">
+        <input class="input" name="address" placeholder="0x... wallet address" required>
+        <button class="btn" type="submit">Add Wallet</button>
+      </form>
+      <ul id="walletList" class="list"></ul>
+    </div>
+
+    <!-- Interactions -->
+    <div class="card">
+      <h3>Interactions</h3>
+      <div style="display:flex;gap:8px;align-items:center;margin-bottom:10px">
+        <select id="selWallet" class="input" style="max-width:420px"></select>
+        <button id="btnLoadInteractions" class="btn secondary">Load Latest</button>
+      </div>
+      <ul id="interactionList" class="list"></ul>
+      <div style="margin-top:8px"><button id="btnMoreInteractions" class="btn secondary" style="display:none">Load More</button></div>
+    </div>
+
+    <!-- Logs realtime -->
+    <div class="card">
+      <h3>Realtime Logs</h3>
+      <div id="logs" class="logs-box"></div>
+      <div style="margin-top:8px">
+        <input id="filterWallet" class="input" placeholder="Filter by wallet (optional)" />
+      </div>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+  <script src="/js/main.js"></script>
+</body>
+</html>
